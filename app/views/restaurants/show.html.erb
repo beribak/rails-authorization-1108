@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @restaurant %>
+
+<div>
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
+  <%= link_to "Back to restaurants", restaurants_path %>
+  <%# if policy(@restaurant).destroy? %>
+  <% if @restaurant.user == current_user %>
+    <%= button_to "Destroy this restaurant", @restaurant, method: :delete %>
+  <% end %>
+</div>
